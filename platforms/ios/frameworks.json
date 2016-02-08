@@ -1,0 +1,7 @@
+{
+    "SystemConfiguration.framework": 1,
+    "CoreTelephony.framework": 1,
+    "Social.framework": 2,
+    "MessageUI.framework": 1,
+    "QuartzCore.framework": 1
+}

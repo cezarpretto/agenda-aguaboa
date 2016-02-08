@@ -1,0 +1,39 @@
+<ion-view view-title="Agenda Água Boa - Configurações">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-if="logado === false">
+        <button class="button button-block button-positive" ng-click="logar()">
+          <i class="ion-social-google"></i> Login com Google
+        </button>
+      </ion-item>
+      <div ng-if="logado">
+        <div class="list card">
+          <div class="item item-avatar">
+            <img ng-src="{{usuarioLogado.google.profileImageURL}}">
+            <h2>{{usuarioLogado.google.cachedUserProfile.given_name}}</h2>
+            <p>{{usuarioLogado.google.cachedUserProfile.family_name}}</p>
+          </div>
+        </div>
+        <ion-item>
+          <button class="button button-block button-positive" ng-click="logout()">
+            Logout
+          </button>
+        </ion-item>
+      </div>
+      <div class="list">
+        <div class="item item-divider">
+          Opções
+        </div>
+        <div class="item item-button-right">
+          Sincronizar agora
+          <button class="button button-clear button-positive" ng-click="sincronizar()">
+            <i class="ion-android-sync"></i>
+          </button>
+        </div>
+      </div>
+      <!-- <ion-toggle  ng-model="settings.enableFriends">
+          Enable Friends
+      </ion-toggle> -->
+    </ion-list>
+  </ion-content>
+</ion-view>

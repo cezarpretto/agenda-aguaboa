@@ -1,0 +1,22 @@
+<ion-view view-title="Agenda Água Boa - Pesquisa">
+  <ion-content class="padding">
+    <form name="frmPesquisa" ng-submit="pesquisar()">
+      <div class="list">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Número ou Nome..." required="required" ng-model="search.query">
+          </label>
+          <button type="submit" class="button button-small button-positive" ng-disabled="frmPesquisa.$invalod">
+            <i class="ion-ios-search"></i>
+          </button>
+        </div>
+      </div>
+      <div class="list">
+        <a ng-click="options(r)" class="item" ng-repeat="r in resultados">
+          {{r.nome}}
+          <p>{{r.telefone}}</p>
+        </a>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
