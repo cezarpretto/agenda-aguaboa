@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.service('SearchService', function(MsgService, $rootScope){
+.service('SearchService', function(MsgService, $rootScope, ConnectionService){
   this.search = function(searchTerm){
     var arr = JSON.parse(window.localStorage.getItem('telefones'));
     var filtered = arr.filter(function(str) {
@@ -39,20 +39,30 @@ angular.module('starter')
     window.localStorage.setItem('lastSync', JSON.stringify(ll));
   };
 
+  // this.canSync = function(){
+  //   var lastSync = JSON.parse(window.localStorage.getItem('lastSync'));
+  //   if(lastSync === null){
+  //     return true;
+  //   }else{
+  //     var ls = new Date(lastSync).getTime();
+  //     var now = new Date().getTime();
+  //     if(now - ls >= 172800000){
+  //       //console.log('Diferença:', now - loggedAt);
+  //       return true;
+  //     }else{
+  //       return false;
+  //     }
+  //   }
+  // };
+
   this.canSync = function(){
-    var lastSync = JSON.parse(window.localStorage.getItem('lastSync'));
-    console.log(lastSync);
-    if(lastSync === null){
+    var telefones = JSON.parse(window.localStorage.getItem('telefones'));
+    if(telefones === null){
       return true;
-    }else{
-      var ls = new Date(lastSync).getTime();
-      var now = new Date().getTime();
-      if(now - ls >= 172800000){
-        //console.log('Diferença:', now - loggedAt);
-        return true;
-      }else{
-        return false;
-      }
+    }else if(ConnectionService.checkConnection() === 7){
+      return true;
     }
+
+    return false;
   };
 });

@@ -7,6 +7,7 @@ angular.module('starter')
       var states = {};
       //var Connection = '';
       //console.log(networkState);
+      console.log(networkState);
       switch (networkState) {
         case 'cellular':
           return 0

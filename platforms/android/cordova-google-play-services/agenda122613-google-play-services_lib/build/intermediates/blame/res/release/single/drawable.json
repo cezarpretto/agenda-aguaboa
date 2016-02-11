@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/release/drawable/cast_ic_notification_connecting.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/drawable/cast_ic_notification_connecting.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/release/drawable/common_signin_btn_text_dark.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/drawable/common_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/release/drawable/common_signin_btn_icon_dark.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/drawable/common_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/release/drawable/common_signin_btn_icon_light.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/drawable/common_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/release/drawable/common_signin_btn_text_light.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/drawable/common_signin_btn_text_light.xml"
+    }
+]

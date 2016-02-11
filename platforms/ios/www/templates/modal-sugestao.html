@@ -1,0 +1,23 @@
+<div class="modal">
+  <header class="bar bar-header bar-positive">
+    <h1 class="title">Sugestão de Número</h1>
+    <div class="button button-clear" ng-click="modalSugestao.hide()">
+      <span class="icon ion-close"></span>
+    </div>
+  </header>
+  <content has-header="true" padding="true">
+    <form name="frmSugestao" ng-submit="addSugestao()" style="padding-top: 50px;">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Nome" ng-model="sugestao.nome" required="required">
+        </label>
+        <label class="item item-input">
+          <input type="tel" placeholder="Telefone" ng-model="sugestao.telefone" required="required" mask="(99) 9?9999-9999">
+        </label>
+      </div>
+      <button type="submit" class="button button-full button-positive" ng-disabled="frmSugestao.$invalid">
+        Enviar
+      </button>
+    </form>
+  </content>
+</div>

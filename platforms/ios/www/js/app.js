@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic', 'firebase'])
+var starter = angular.module('starter', ['ionic', 'firebase', 'ngMask'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,6 +19,9 @@ var starter = angular.module('starter', ['ionic', 'firebase'])
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+      if (cordova.platformId == 'android') {
+        StatusBar.backgroundColorByHexString("#886aea");
+      }
     }
   });
 })

@@ -1,7 +1,17 @@
 {
-    "SystemConfiguration.framework": 1,
-    "CoreTelephony.framework": 1,
+    "SystemConfiguration.framework": 3,
+    "CoreTelephony.framework": 2,
     "Social.framework": 2,
-    "MessageUI.framework": 1,
-    "QuartzCore.framework": 1
+    "MessageUI.framework": 2,
+    "QuartzCore.framework": 2,
+    "AddressBook.framework": 1,
+    "AddressBookUI.framework": 1,
+    "AudioToolbox.framework": 2,
+    "AdSupport.framework": 1,
+    "AVFoundation.framework": 1,
+    "CoreFoundation.framework": 1,
+    "CoreMedia.framework": 1,
+    "StoreKit.framework": 1,
+    "EventKit.framework": 1,
+    "EventKitUI.framework": 1
 }

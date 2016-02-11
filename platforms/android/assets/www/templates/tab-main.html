@@ -1,4 +1,9 @@
 <ion-view view-title="Agenda Água Boa - Pesquisa">
+  <ion-nav-buttons side="right">
+    <button class="button button-energized" ng-click="openSugestao()">
+      <i class="ion-plus-round"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content class="padding">
     <form name="frmPesquisa" ng-submit="pesquisar()">
       <div class="list">
@@ -21,6 +26,9 @@
         <a ng-click="options(r)" class="item" ng-repeat="r in resultados">
           {{r.nome}}
           <p>{{r.telefone}}</p>
+        </a>
+        <a href="" class="item" ng-if="naoEncontrado">
+          Nada encontrado!
         </a>
       </div>
     </form>

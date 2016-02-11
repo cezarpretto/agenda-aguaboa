@@ -1,4 +1,9 @@
 <ion-view view-title="Agenda Água Boa - Pesquisa">
+  <ion-nav-buttons side="right">
+    <button class="button button-energized" ng-click="openSugestao()">
+      <i class="ion-plus-round"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content class="padding">
     <form name="frmPesquisa" ng-submit="pesquisar()">
       <div class="list">
@@ -10,6 +15,12 @@
             <i class="ion-ios-search"></i>
           </button>
         </div>
+      </div>
+      <div class="card" ng-if="message">
+        <a class="item item-text-wrap" href="#">
+          <i class="ion-alert-circled"></i>
+          <strong>Atenção!</strong> Não foi possível verificar a sua conexão. Você vai precisar sincronizar os números manualmente. Acesse: Configurações -> Clique no Botão <i class="ion-android-sync"></i>.
+        </a>
       </div>
       <div class="list">
         <a ng-click="options(r)" class="item" ng-repeat="r in resultados">

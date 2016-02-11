@@ -1,13 +1,33 @@
 angular.module('starter')
 
-.service('SearchService', function(MsgService, $rootScope){
+.service('SearchService', function(MsgService, $rootScope, ConnectionService){
+  var self = this;
   this.search = function(searchTerm){
+    var number = false;
+    if(parseInt(searchTerm)){
+      number = true;
+    }
+    searchTerm = self.clearString(searchTerm);
     var arr = JSON.parse(window.localStorage.getItem('telefones'));
     var filtered = arr.filter(function(str) {
-      return str.nome.toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      if(number){
+        return self.clearString(str.telefone).toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      }else{
+        return self.clearString(str.nome).toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      }
     });
     cordova.plugins.Keyboard.close();
     return filtered;
+  };
+
+  this.clearString = function(str){
+    str = str.toString();
+    str = str.replace(/[ÀÁÂÃÄÅ]/,"A");
+    str = str.replace(/[àáâãäå]/,"a");
+    str = str.replace(/[ÈÉÊË]/,"E");
+    str = str.replace(/[Ç]/,"C");
+    str = str.replace(/[ç]/,"c");
+    return str.replace(/[^a-z0-9]/gi,'');
   };
 
   this.addFavorito = function(telefone){
@@ -39,19 +59,30 @@ angular.module('starter')
     window.localStorage.setItem('lastSync', JSON.stringify(ll));
   };
 
+  // this.canSync = function(){
+  //   var lastSync = JSON.parse(window.localStorage.getItem('lastSync'));
+  //   if(lastSync === null){
+  //     return true;
+  //   }else{
+  //     var ls = new Date(lastSync).getTime();
+  //     var now = new Date().getTime();
+  //     if(now - ls >= 172800000){
+  //       //console.log('Diferença:', now - loggedAt);
+  //       return true;
+  //     }else{
+  //       return false;
+  //     }
+  //   }
+  // };
+
   this.canSync = function(){
-    var lastSync = JSON.parse(window.localStorage.getItem('lastSync'));
-    if(lastSync === null){
+    var telefones = JSON.parse(window.localStorage.getItem('telefones'));
+    if(telefones === null){
       return true;
-    }else{
-      var ls = new Date(lastSync).getTime();
-      var now = new Date().getTime();
-      if(now - ls >= 172800000){
-        //console.log('Diferença:', now - loggedAt);
-        return true;
-      }else{
-        return false;
-      }
+    }else if(ConnectionService.checkConnection() === 7){
+      return true;
     }
+
+    return false;
   };
 });

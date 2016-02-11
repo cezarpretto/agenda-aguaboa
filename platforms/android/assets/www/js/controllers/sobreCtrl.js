@@ -1,16 +1,13 @@
 angular.module('starter')
 
-.controller('SobreCtrl', function($scope, $ionicModal){
+.controller('SobreCtrl', function($scope, $ionicModal, ModalService){
   var counter = 0;
   $scope.counter_ = 0;
   $scope.openGithub = function(){
-    window.open('http://github.com/cezarpretto');
+    window.open('http://github.com/cezarpretto', '_system');
   };
 
-  $ionicModal.fromTemplateUrl('templates/modal-easteregg.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
+  ModalService.init('modal-easteregg.html', $scope).then(function(modal){
     $scope.modal = modal;
   });
 
@@ -23,6 +20,12 @@ angular.module('starter')
       counter = 0;
       $scope.modal.show();
       $scope.counter_ = 0;
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+        if (cordova.platformId == 'android') {
+          StatusBar.backgroundColorByHexString("#444444");
+        }
+      }
     }
   };
 });

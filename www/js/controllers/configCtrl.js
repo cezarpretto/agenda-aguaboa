@@ -1,7 +1,7 @@
 angular.module('starter')
 
 .controller('ConfigCtrl', function($scope, $firebaseAuth, MsgService, $firebaseArray, SearchService){
-  var authRef = new Firebase("https://listaab.firebaseio.com/telefones/usuarios");
+  var authRef = new Firebase("https://listaab.firebaseio.com/usuarios");
   var auth = $firebaseAuth(authRef);
   $scope.logado = false;
   $scope.usuarioLogado = auth.$getAuth();

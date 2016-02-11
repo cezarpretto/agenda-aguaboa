@@ -30,7 +30,11 @@
     {
       "locator": "https://github.com/apache/cordova-plugin-splashscreen.git",
       "id": "cordova-plugin-splashscreen"
-    }
+    },
+    "cordova-plugin-contacts",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-statusbar",
+    "cordova-admob"
   ],
   "cordovaPlatforms": [
     "android"

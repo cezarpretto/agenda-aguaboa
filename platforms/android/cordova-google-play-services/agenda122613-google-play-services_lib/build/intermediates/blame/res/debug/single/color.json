@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/debug/color/common_signin_btn_text_light.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/color/common_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/color/wallet_secondary_text_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/color/wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/build/intermediates/res/merged/debug/color/common_signin_btn_text_dark.xml",
+        "source": "/Users/operador/Documents/projetos/mobile/agenda-aguaboa/platforms/android/cordova-google-play-services/agenda122613-google-play-services_lib/res/color/common_signin_btn_text_dark.xml"
+    }
+]
