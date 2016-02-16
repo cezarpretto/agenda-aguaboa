@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('MainCtrl', function($scope, $firebaseArray, ConnectionService, MsgService, SearchService, $ionicActionSheet, $timeout, ModalService, $state, $firebaseAuth, $firebaseArray) {
+.controller('MainCtrl', function($scope, $firebaseArray, ConnectionService, MsgService, SearchService, $ionicActionSheet, $timeout, ModalService, $state, $firebaseAuth, $firebaseArray, $ionicPlatform) {
   $scope.listCanSwipe = true;
   $scope.search = {
     query: undefined
@@ -15,26 +15,33 @@ angular.module('starter')
   $scope.sugestoes = $firebaseArray(sugRef);
   $scope.correcoes = $firebaseArray(corrRef);
   $scope.sugestao = {};
+  $scope.naoEncontrado = false;
 
-  if(SearchService.canSync()){
-    MsgService.loadingShow('Sincronizando banco de Números');
-    var telefonesRev = new Firebase("https://listaab.firebaseio.com/telefones");
-    $scope.onlineTelefones = $firebaseArray(telefonesRev);
-    $scope.onlineTelefones.$loaded().then(function(){
-      window.localStorage.setItem('telefones', JSON.stringify($scope.onlineTelefones));
-      // console.log($scope.onlineTelefones);
-      SearchService.setLastSync();
-      MsgService.loadingHide();
-    }).catch(function(err){
-      MsgService.loadingHide();
-      MsgService.alert('Não foi possível sincronizar! Tente mais tarde =(');
-      console.error(err);
-    });
-  }
+  $ionicPlatform.ready(function() {
+    if(SearchService.canSync()){
+      MsgService.loadingShow('Sincronizando banco de Números');
+      var telefonesRev = new Firebase("https://listaab.firebaseio.com/telefones");
+      $scope.onlineTelefones = $firebaseArray(telefonesRev);
+      $scope.onlineTelefones.$loaded().then(function(){
+        window.localStorage.setItem('telefones', JSON.stringify($scope.onlineTelefones));
+        // console.log($scope.onlineTelefones);
+        SearchService.setLastSync();
+        MsgService.loadingHide();
+      }).catch(function(err){
+        MsgService.loadingHide();
+        MsgService.alert('Não foi possível sincronizar! Tente mais tarde =(');
+        console.error(err);
+      });
+    }
+  });
 
   $scope.pesquisar = function(){
+    $scope.naoEncontrado = false;
     $scope.resultados = SearchService.search($scope.search.query);
     $scope.search.query = undefined;
+    if($scope.resultados.length === 0){
+      $scope.naoEncontrado = true;
+    }
   };
 
   function share(telefone){

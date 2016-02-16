@@ -1,36 +1,32 @@
-<ion-view view-title="Agenda Água Boa - Pesquisa">
+<ion-view view-title="Agenda Água Boa">
   <ion-nav-buttons side="right">
-    <button class="button button-energized" ng-click="openSugestao()">
-      <i class="ion-plus-round"></i>
+    <button class="button button-clear button-energized" ng-click="openSugestao()">
+      <strong><i class="ion-plus-round"></i></strong>
     </button>
   </ion-nav-buttons>
-  <ion-content class="padding">
+  <ion-header-bar class="bar-light bar-subheader" style="padding-top:52px">
     <form name="frmPesquisa" ng-submit="pesquisar()">
       <div class="list">
-        <div class="item item-input-inset">
+        <div class="item item-input-inset" style="background-color: #886AEA">
           <label class="item-input-wrapper">
             <input type="text" placeholder="Número ou Nome..." required="required" ng-model="search.query">
           </label>
-          <button type="submit" class="button button-small button-positive" ng-disabled="frmPesquisa.$invalod">
-            <i class="ion-ios-search"></i>
+          <button type="submit" class="button button-clear button-energized" ng-disabled="frmPesquisa.$invalod">
+            <strong><i class="ion-ios-search"></i></strong>
           </button>
         </div>
       </div>
-      <div class="card" ng-if="message">
-        <a class="item item-text-wrap" href="#">
-          <i class="ion-alert-circled"></i>
-          <strong>Atenção!</strong> Não foi possível verificar a sua conexão. Você vai precisar sincronizar os números manualmente. Acesse: Configurações -> Clique no Botão <i class="ion-android-sync"></i>.
-        </a>
-      </div>
-      <div class="list">
-        <a ng-click="options(r)" class="item" ng-repeat="r in resultados">
-          {{r.nome}}
-          <p>{{r.telefone}}</p>
-        </a>
-        <a href="" class="item" ng-if="naoEncontrado">
-          Nada encontrado!
-        </a>
-      </div>
     </form>
+  </ion-header-bar>
+  <ion-content class="padding" style="padding-top: 57px;">
+    <div class="list">
+      <a ng-click="options(r)" class="item" ng-repeat="r in resultados">
+        {{r.nome}}
+        <p>{{r.telefone}}</p>
+      </a>
+      <a href="" class="item" ng-if="naoEncontrado">
+        Nada encontrado!
+      </a>
+    </div>
   </ion-content>
 </ion-view>

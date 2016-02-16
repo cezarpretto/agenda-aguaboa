@@ -7,19 +7,25 @@ angular.module('starter')
     window.open('http://github.com/cezarpretto', '_system');
   };
 
-  // ModalService.init('modal-easteregg.html', $scope).then(function(modal){
-  //   $scope.modal = modal;
-  // });
+  ModalService.init('modal-easteregg.html', $scope).then(function(modal){
+    $scope.modal = modal;
+  });
 
-  // $scope.count = function(){
-  //   counter ++;
-  //   if(counter > 6){
-  //     $scope.counter_ = counter
-  //   }
-  //   if(counter === 18){
-  //     counter = 0;
-  //     $scope.modal.show();
-  //     $scope.counter_ = 0;
-  //   }
-  // };
+  $scope.count = function(){
+    counter ++;
+    if(counter > 6){
+      $scope.counter_ = counter
+    }
+    if(counter === 18){
+      counter = 0;
+      $scope.modal.show();
+      $scope.counter_ = 0;
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+        if (cordova.platformId == 'android') {
+          StatusBar.backgroundColorByHexString("#444444");
+        }
+      }
+    }
+  };
 });

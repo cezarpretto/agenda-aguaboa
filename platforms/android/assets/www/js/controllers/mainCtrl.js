@@ -116,7 +116,7 @@ angular.module('starter')
    };
 
    $scope.addSugestao = function(){
-     $scope.sugestao.usuario = usuarioLogado.google;
+     $scope.sugestao.usuario = usuarioLogado.google || usuarioLogado.facebook;
      $scope.sugestoes.$add($scope.sugestao).then(function(){
        MsgService.alert('Sugestão enviada com sucesso. Obrigado!');
        $scope.modalSugestao.hide();
@@ -126,7 +126,7 @@ angular.module('starter')
    };
 
    $scope.addCorrecao = function(){
-     $scope.correcao.usuario = usuarioLogado.google;
+     $scope.correcao.usuario = usuarioLogado.google || usuarioLogado.facebook;
      $scope.correcoes.$add($scope.correcao).then(function(){
        MsgService.alert('Pedido de correção enviado com sucesso. Obrigado!');
        $scope.modalCorrecao.hide();

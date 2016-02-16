@@ -7,12 +7,26 @@ angular.module('starter')
   $scope.usuarioLogado = auth.$getAuth();
   if($scope.usuarioLogado !== null){
     $scope.logado = true;
+    // console.log($scope.usuarioLogado);
   }else{
     $scope.logado = false;
   }
 
   $scope.logar = function(){
     auth.$authWithOAuthPopup("google").then(function(authData) {
+      console.log(authData);
+      console.log("Logged in as:", authData.uid);
+      $scope.logado = true;
+      $scope.usuarioLogado = authData;
+    }).catch(function(error) {
+      console.log("Authentication failed:", error);
+      $scope.logado = false;
+      $scope.usuarioLogado = null;
+    });
+  };
+
+  $scope.logarFace = function(){
+    auth.$authWithOAuthPopup("facebook").then(function(authData) {
       console.log(authData);
       console.log("Logged in as:", authData.uid);
       $scope.logado = true;

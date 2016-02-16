@@ -1,13 +1,33 @@
 angular.module('starter')
 
 .service('SearchService', function(MsgService, $rootScope, ConnectionService){
+  var self = this;
   this.search = function(searchTerm){
+    var number = false;
+    if(parseInt(searchTerm)){
+      number = true;
+    }
+    searchTerm = self.clearString(searchTerm);
     var arr = JSON.parse(window.localStorage.getItem('telefones'));
     var filtered = arr.filter(function(str) {
-      return str.nome.toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      if(number){
+        return self.clearString(str.telefone).toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      }else{
+        return self.clearString(str.nome).toUpperCase().indexOf(searchTerm.toUpperCase()) != -1;
+      }
     });
     cordova.plugins.Keyboard.close();
     return filtered;
+  };
+
+  this.clearString = function(str){
+    str = str.toString();
+    str = str.replace(/[ÀÁÂÃÄÅ]/,"A");
+    str = str.replace(/[àáâãäå]/,"a");
+    str = str.replace(/[ÈÉÊË]/,"E");
+    str = str.replace(/[Ç]/,"C");
+    str = str.replace(/[ç]/,"c");
+    return str.replace(/[^a-z0-9]/gi,'');
   };
 
   this.addFavorito = function(telefone){

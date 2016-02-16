@@ -97,6 +97,12 @@ var starter = angular.module('starter', ['ionic', 'firebase', 'ngMask', 'admobMo
   //admobSvcProvider.setPrefix('myTag~');
 }])
 
+.config(['$ionicConfigProvider', function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('top');
+
+}])
+
 .run(['admobSvc', '$rootScope', function(admobSvc, $rootScope) {
   // Also you could configure the options here (or in any controller):
   // admobSvcProvider.setOptions({ ... });

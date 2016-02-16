@@ -17,7 +17,16 @@ angular.module('starter')
       }
     });
     cordova.plugins.Keyboard.close();
-    return filtered;
+    return self.sortArray(filtered);
+  };
+
+  this.sortArray = function(array){
+    array.sort(function(a, b){
+      if(a.nome < b.nome) return -1;
+      if(a.nome > b.nome) return 1;
+      return 0;
+    });
+    return array;
   };
 
   this.clearString = function(str){

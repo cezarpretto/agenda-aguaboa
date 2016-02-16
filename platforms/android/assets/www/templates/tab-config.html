@@ -1,17 +1,20 @@
-<ion-view view-title="Agenda Água Boa - Configurações">
+<ion-view view-title="Agenda Água Boa">
   <ion-content>
     <ion-list>
       <ion-item ng-if="logado === false">
         <button class="button button-block button-positive" ng-click="logar()">
           <i class="ion-social-google"></i> Login com Google
         </button>
+        <button class="button button-block button-positive" ng-click="logarFace()" style="background-color: #3b5998">
+          <i class="ion-social-facebook"></i> Login com Facebook
+        </button>
       </ion-item>
       <div ng-if="logado">
         <div class="list card">
           <div class="item item-avatar">
-            <img ng-src="{{usuarioLogado.google.profileImageURL}}">
-            <h2>{{usuarioLogado.google.cachedUserProfile.given_name}}</h2>
-            <p>{{usuarioLogado.google.cachedUserProfile.family_name}}</p>
+            <img ng-src="{{usuarioLogado.google.profileImageURL || usuarioLogado.facebook.profileImageURL}}">
+            <h2>{{usuarioLogado.google.cachedUserProfile.given_name || usuarioLogado.facebook.cachedUserProfile.first_name}}</h2>
+            <p>{{usuarioLogado.google.cachedUserProfile.family_name || usuarioLogado.facebook.cachedUserProfile.last_name}}</p>
           </div>
         </div>
         <ion-item>
